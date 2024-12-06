@@ -8,7 +8,13 @@ export default function CityPage() {
       <nav>
         <ul>
           <li>
-            <Link to="/CityList">Select City</Link>
+            <Link to="/CreateNewCity">Add a City</Link>
+          </li>
+          <li>
+            <Link to="/ListAllCities">All Cities</Link>
+          </li>
+          <li>
+            <Link to="/CityList">Select a City</Link>
           </li>
         </ul>
       </nav>
