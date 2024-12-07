@@ -1,6 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
-import Header from "../Header";
 import { Link } from "react-router-dom";
 
 const CitySelector = ({ cities }) => {
@@ -16,7 +14,7 @@ const CitySelector = ({ cities }) => {
   console.log(cities);
 
   return (
-    <div>
+    <div class="homeBox">
       <h2>Select a City</h2>
       <select
         value={selectedCity ? selectedCity.cityName : ""}
@@ -42,7 +40,9 @@ const CitySelector = ({ cities }) => {
       )}
 
       <br />
-      <Link to={"/City"}>Back</Link>
+      <Link to={"/City"} class="button2">
+        Back
+      </Link>
     </div>
   );
 };
