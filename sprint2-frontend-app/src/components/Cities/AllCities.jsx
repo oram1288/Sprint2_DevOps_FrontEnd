@@ -13,7 +13,7 @@ export default function AllCities({ cities, fetchCities }) {
   };
 
   return (
-    <div>
+    <div class="cityBox">
       <h1>Cities</h1>
       <ul>
         {cities.map((city, index) => (
@@ -23,13 +23,20 @@ export default function AllCities({ cities, fetchCities }) {
             <p>State: {city.state}</p>
             <p>Weather: {city.weather}</p>
             <p>Population: {city.population}</p>
-            <button onClick={() => handleDelete(city.cityId)}>Delete</button>
+            <button
+              onClick={() => handleDelete(city.cityId)}
+              class="deleteButton"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
 
       <br />
-      <Link to={"/City"}>Back</Link>
+      <Link to={"/City"} class="button2">
+        Back
+      </Link>
     </div>
   );
 }

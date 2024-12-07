@@ -37,7 +37,7 @@ export default function CreateCity() {
   };
 
   return (
-    <div>
+    <div class="cityBox">
       <h2>Add a New City</h2>
       {notification && (
         <p
@@ -94,11 +94,15 @@ export default function CreateCity() {
             required
           />
         </div>
-        <button type="submit">Add City</button>
+        <button type="submit" class="addButton">
+          Add City
+        </button>
       </form>
 
       <br />
-      <Link to={"/City"}>Back</Link>
+      <Link to={"/City"} class="button2">
+        Back
+      </Link>
     </div>
   );
 }

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div>
+    <div class="header">
       <h1>Airport Hub</h1>
-      <nav>
+      <nav class="nav">
         <ul>
           <li>
             <Link to="/">Home</Link>
