@@ -22,6 +22,18 @@ function App() {
     loadCities().then(() => console.log("Cities loaded"));
   }, [loadCities]);
 
+  const loadPassengers = useCallback(async() => {
+    const response = await axios.get("http://localhost:8080/listAllPassengers");
+    console.log(response.data);
+    setPassengers(response.data);
+  }, []);
+
+  useEffect(() => {
+    loadPassengers().then(() => console.log("Passengers loaded"));
+  }, [loadPassengers]);
+
+
+
   return (
     <div>
       <Header />
@@ -29,6 +41,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/City" element={<CityPage />} />
         <Route path="/CityList" element={<CitySelector cities={cities} />} />
+        <Route path="/Passenger" element={<PassengerPage />} />
+        <Route path="/PassengerList" element={<PassengerSelector passengers={passengers} />} />
       </Routes>
     </div>
   );
