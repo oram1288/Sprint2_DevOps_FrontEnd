@@ -7,20 +7,30 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import CityPage from "./components/CityPage";
+import AllCities from "./components/Cities/AllCities";
+import CreateCity from "./components/Cities/CreateCity";
 
 function App() {
   const [cities, setCities] = useState([]);
   const [passengers, setPassenger] = useState([]);
 
-  const loadCities = useCallback(async () => {
-    const response = await axios.get("http://localhost:8080/listAllCities");
-    console.log(response.data);
-    setCities(response.data);
+  const fetchCities = useCallback(async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/listAllCities");
+      console.log(response.data);
+      setCities(response.data);
+    } catch (error) {
+      console.error("There was an error fetching the cities!", error);
+    }
   }, []);
 
   useEffect(() => {
-    loadCities().then(() => console.log("Cities loaded"));
-  }, [loadCities]);
+    fetchCities().then(() => console.log("Cities loaded"));
+  }, [fetchCities]);
+
+  const addCity = (newCity) => {
+    setCities([...cities, newCity]);
+  };
 
   const loadPassengers = useCallback(async() => {
     const response = await axios.get("http://localhost:8080/listAllPassengers");
@@ -43,6 +53,11 @@ function App() {
         <Route path="/CityList" element={<CitySelector cities={cities} />} />
         <Route path="/Passenger" element={<PassengerPage />} />
         <Route path="/PassengerList" element={<PassengerSelector passengers={passengers} />} />
+        <Route path="/ListAllCities" element={<AllCities cities={cities} />} />
+        <Route
+          path="/CreateNewCity"
+          element={<CreateCity addCity={addCity} />}
+        />
       </Routes>
     </div>
   );
