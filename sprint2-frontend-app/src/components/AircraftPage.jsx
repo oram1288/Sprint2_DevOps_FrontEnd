@@ -17,6 +17,11 @@ export default function AircraftPage() {
               Find Aircraft By ID
             </Link>
           </li>
+          <li>
+            <Link to="/CreateAirport" class="button">
+              Find Aircraft By ID
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
