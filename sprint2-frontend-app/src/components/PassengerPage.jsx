@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 export default function PassengerPage() {
   return (
-    <div>
+    <div class="homeBox">
       <h1>Passenger Information:</h1>
       <nav>
         <ul>
           <li>
-            <Link to="/PassengerList">Select Passenger</Link>
+            <Link to="/PassengerList" class="button">
+              Select Passenger
+            </Link>
           </li>
           <li>
             <Link to="/CreateNewPassenger" class="button">
@@ -25,4 +27,3 @@ export default function PassengerPage() {
     </div>
   );
 }
-

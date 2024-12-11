@@ -6,10 +6,10 @@ export default function AllCities({ cities, fetchCities }) {
   const handleDelete = async (cityId) => {
     try {
       await axios.delete(`http://localhost:8080/deleteCityById/${cityId}`);
-      fetchCities(); // Refresh the list of cities
     } catch (error) {
       console.error("There was an error deleting the city!", error);
     }
+    fetchCities();
   };
 
   return (

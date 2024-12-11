@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function CreateCity() {
+export default function CreateCity({ fetchCities }) {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
@@ -28,6 +28,7 @@ export default function CreateCity() {
       setWeather("");
       setPopulation("");
       setNotification("City added successfully!");
+      fetchCities();
       setTimeout(() => setNotification(""), 3000);
     } catch (error) {
       console.error("There was an error adding the city", error);

@@ -8,7 +8,9 @@ const PassengerSelector = ({ passengers }) => {
 
   const handleChange = (event) => {
     const selectedPassengerName = event.target.value;
-    const passenger = passengers.find((passenger) => passenger.passengerName === selectedPassengerName);
+    const passenger = passengers.find(
+      (passenger) => passenger.passengerName === selectedPassengerName
+    );
     console.log(passenger);
     setSelectedPassenger(passenger);
   };
@@ -16,7 +18,7 @@ const PassengerSelector = ({ passengers }) => {
   console.log(passengers);
 
   return (
-    <div>
+    <div class="homeBox">
       <h2>Select a Passenger</h2>
       <select
         value={selectedPassenger ? selectedPassenger.passengerName : ""}
@@ -41,7 +43,9 @@ const PassengerSelector = ({ passengers }) => {
       )}
 
       <br />
-      <Link to={"/Passenger"}>Back</Link>
+      <Link to={"/Passenger"} class="button2">
+        Back
+      </Link>
     </div>
   );
 };
