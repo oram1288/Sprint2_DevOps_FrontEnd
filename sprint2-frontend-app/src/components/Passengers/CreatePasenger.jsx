@@ -12,7 +12,7 @@ export default function CreatePassenger() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newPasenger = {
+    const newPassenger = {
       passengerName,
       passengerAddress,
       passengerPhone,
