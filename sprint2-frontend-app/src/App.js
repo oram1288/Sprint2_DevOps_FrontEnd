@@ -51,6 +51,9 @@ function App() {
   useEffect(() => {
     loadPassengers().then(() => console.log("Passengers loaded"));
   }, [loadPassengers]);
+  
+  const addPassenger = (newPassenger) => {
+    setPassengers([...passengers, newPassenger]);
 
 
 
@@ -94,6 +97,7 @@ function App() {
       </Routes>
     </div>
   );
+}
 }
 
 export default App;
