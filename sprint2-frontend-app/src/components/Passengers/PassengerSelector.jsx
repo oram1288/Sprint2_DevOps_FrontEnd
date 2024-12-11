@@ -10,7 +10,7 @@ const PassengerSelector = ({ passengers }) => {
     const selectedPassengerName = event.target.value;
     const passenger = passengers.find((passenger) => passenger.passengerName === selectedPassengerName);
     console.log(passenger);
-    setSelectedCity(passenger);
+    setSelectedPassenger(passenger);
   };
 
   console.log(passengers);

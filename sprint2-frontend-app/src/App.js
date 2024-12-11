@@ -42,7 +42,9 @@ function App() {
     loadPassengers().then(() => console.log("Passengers loaded"));
   }, [loadPassengers]);
 
-
+  const addPassenger = (newPassenger) => {
+    setPassengers([...passengers, newPassenger]);
+  };
 
   return (
     <div>
@@ -57,6 +59,11 @@ function App() {
         <Route
           path="/CreateNewCity"
           element={<CreateCity addCity={addCity} />}
+        />
+        <Route path="/ListAllPassengers" element={<AllPassengers passengers={passengers} />} />
+        <Route
+          path="/CreateNewPassenger"
+          element={<CreatePassenger addPassenger={addPassenger} />}
         />
       </Routes>
     </div>
