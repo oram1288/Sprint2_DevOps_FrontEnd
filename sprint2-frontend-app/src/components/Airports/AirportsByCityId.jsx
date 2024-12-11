@@ -8,12 +8,16 @@ function AirportsByCityId() {
 
   const fetchAirportsByCityId = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/getAirportsByCityId/${cityId}`);
+      const response = await axios.get(
+        `http://localhost:8080/getAirportsByCityId/${cityId}`
+      );
       setAirports(response.data);
       setErrorMessage("");
     } catch (error) {
       console.error("Error fetching airports by city ID", error);
-      setErrorMessage("No airports found for this city ID or an error occurred.");
+      setErrorMessage(
+        "No airports found for this city ID or an error occurred."
+      );
       setAirports([]);
     }
   };
@@ -36,7 +40,7 @@ function AirportsByCityId() {
           <li key={airport.airportId}>
             <h3>{airport.name}</h3>
             <p>Code: {airport.code}</p>
-            <p>City Name: {airport.cityName}</p>
+            <p>City Name: {airport.cityName.cityName}</p>
           </li>
         ))}
       </ul>

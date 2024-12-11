@@ -8,12 +8,12 @@ export default function AircraftPage() {
       <nav>
         <ul>
           <li>
-            <Link to="/listAllAircrafts" className="button">
+            <Link to="/listAllAircrafts" class="button">
               All Aircrafts
             </Link>
           </li>
           <li>
-            <Link to="/getAircraftById" className="button">
+            <Link to="/getAircraftById" class="button">
               Find Aircraft By ID
             </Link>
           </li>
