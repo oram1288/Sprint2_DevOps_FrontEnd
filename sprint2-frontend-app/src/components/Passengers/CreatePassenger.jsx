@@ -20,6 +20,7 @@ export default function CreatePassenger() {
       passengerEmail,
       aircraftId,
     };
+    
     try {
       await axios.post("http://localhost:8080/addNewPassenger", newPassenger);
       setPassengerName("");
