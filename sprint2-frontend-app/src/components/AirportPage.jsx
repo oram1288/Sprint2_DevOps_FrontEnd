@@ -17,6 +17,11 @@ export default function AirportPage() {
               All Airports
             </Link>
           </li>
+          <li>
+            <Link to="/CreateAirport" class="button">
+              Create A New Airport
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

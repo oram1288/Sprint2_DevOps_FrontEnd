@@ -14,9 +14,14 @@ import AllAirports from "./components/Airports/AllAirports";
 import AircraftPage from "./components/AircraftPage";
 import AllAircrafts from "./components/Aircrafts/AllAircrafts";
 import PassengerPage from "./components/PassengerPage";
+import AirportsByCityId from "./components/Airports/AirportsByCityId";
+import CreateAirport from "./components/Airports/CreateAirport";
+import CreateAircraft from "./components/Aircrafts/CreateAircraft";
+import AircraftById from "./components/Aircrafts/AircraftById";
 import PassengerSelector from "./components/Passengers/PassengerSelector";
 import AllPassengers from "./components/Passengers/AllPassengers";
 import CreatePassenger from "./components/Passengers/CreatePassenger";
+
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -56,6 +61,46 @@ function App() {
 
   const addPassenger = (newPassenger) => {
     setPassengers([...passengers, newPassenger]);
+
+    // Airports
+  const fetchAirports = useCallback(async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/AllAirports");
+      console.log(response.data);
+      setAirports(response.data);
+    } catch (error) {
+      console.error("There was an error fetching the Airports", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchAirports().then(() => console.log("Airports loaded"));
+  }, [fetchAirports]);
+
+  const addAirport = (newAirport) => {
+    setAirports([...airports, newAirport]);
+  };
+
+
+  // Aircrafts
+  const fetchAircrafts = useCallback(async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/AllAircrafts");
+      console.log(response.data);
+      setAircrafts(response.data);
+    } catch (error) {
+      console.error("There was an error fetching the Aircrafts!", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchAircrafts().then(() => console.log("Aircrafts loaded"));
+  }, [fetchAircrafts]);
+
+  const addAircraft = (newAircraft) => {
+    setAircrafts([...aircrafts, newAircraft]);
+  };
+
   };
 
   return (
@@ -80,10 +125,30 @@ function App() {
             <AllAirports airports={airports} fetchAirports={fetchAirports} />
           }
         />
+        <Route
+          path="/CreateNewAirport"
+          element={
+            <CreateAirport addAirport={addAirport} fetchAirports={fetchAirports} />
+          }
+        />
+        <Route
+          path="/AirportsByCityId"
+          element={
+            <AirportsByCityId airports={airports} fetchAirports={fetchAirports} />
+          }
+        />
         <Route path="/Aircraft" element={<AircraftPage />} />
         <Route
+          path="/CreateNewAircraft"
+          element={<CreateAircraft addAircraft={addAircraft} fetchAircrafts={fetchAircrafts} />}
+        />
+        <Route
           path="/listAllAircrafts"
-          element={<AllAircrafts aircrafts={aircrafts} />}
+          element={<AllAircrafts fetchAircrafts={fetchAircrafts} />}
+        />
+        <Route
+          path="/getAircraftById"
+          element={<AircraftById fetchAircrafts={fetchAircrafts} />}
         />
         <Route path="/Passenger" element={<PassengerPage />} />
         <Route
