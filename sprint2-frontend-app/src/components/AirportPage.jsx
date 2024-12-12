@@ -8,8 +8,8 @@ export default function AirportPage() {
       <nav>
         <ul>
           <li>
-            <Link to="/AirportsByCityId" class="button">
-              Find An Airport
+            <Link to="/CreateNewAirport" class="button">
+              Create A New Airport
             </Link>
           </li>
           <li>
@@ -18,8 +18,8 @@ export default function AirportPage() {
             </Link>
           </li>
           <li>
-            <Link to="/CreateAirport" class="button">
-              Create A New Airport
+            <Link to="/AirportsByCityId" class="button">
+              Find An Airport
             </Link>
           </li>
         </ul>

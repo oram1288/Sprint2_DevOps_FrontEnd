@@ -5,7 +5,9 @@ import axios from "axios";
 export default function AllPassengers({ passengers, loadPassengers }) {
   const handleDelete = async (passengerID) => {
     try {
-      await axios.delete(`http://localhost:8080/deletePassengerById/${passengerID}`);
+      await axios.delete(
+        `http://localhost:8080/deletePassengerById/${passengerID}`
+      );
       loadPassengers(); // Refresh the list of passengers
     } catch (error) {
       console.error("There was an error deleting the Passenger!", error);
@@ -13,15 +15,21 @@ export default function AllPassengers({ passengers, loadPassengers }) {
   };
 
   return (
-    <div class="passengerBox">
+    <div class="cityBox">
       <h1>Passengers</h1>
       <ul>
         {passengers.map((passenger, index) => (
           <li key={index}>
             <h3>{passenger.passengerName}</h3>
-            <p>Address: {passenger.passengerAddress}</p>
-            <p>Phone: {passenger.passengerPhone}</p>
-            <p>Email: {passenger.passengerEmail}</p>
+            <p>
+              <strong>Address: </strong> {passenger.passengerAddress}
+            </p>
+            <p>
+              <strong>Phone Number: </strong> {passenger.passengerPhone}
+            </p>
+            <p>
+              <strong>Email: </strong> {passenger.passengerEmail}
+            </p>
             <button
               onClick={() => handleDelete(passenger.passengerID)}
               class="deleteButton"

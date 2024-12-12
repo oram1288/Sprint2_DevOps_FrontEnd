@@ -8,11 +8,6 @@ export default function PassengerPage() {
       <nav>
         <ul>
           <li>
-            <Link to="/PassengerList" class="button">
-              Select Passenger
-            </Link>
-          </li>
-          <li>
             <Link to="/CreateNewPassenger" class="button">
               Add a Passenger
             </Link>
@@ -20,6 +15,11 @@ export default function PassengerPage() {
           <li>
             <Link to="/ListAllPassengers" class="button">
               All Passengers
+            </Link>
+          </li>
+          <li>
+            <Link to="/PassengerList" class="button">
+              Select Passenger
             </Link>
           </li>
         </ul>

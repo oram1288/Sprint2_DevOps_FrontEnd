@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
@@ -21,7 +20,6 @@ import AircraftById from "./components/Aircrafts/AircraftById";
 import PassengerSelector from "./components/Passengers/PassengerSelector";
 import AllPassengers from "./components/Passengers/AllPassengers";
 import CreatePassenger from "./components/Passengers/CreatePassenger";
-
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -61,15 +59,16 @@ function App() {
 
   const addPassenger = (newPassenger) => {
     setPassengers([...passengers, newPassenger]);
+  };
 
-    // Airports
+  // Airports
   const fetchAirports = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/AllAirports");
+      const response = await axios.get("http://localhost:8080/listAllAirports");
       console.log(response.data);
       setAirports(response.data);
     } catch (error) {
-      console.error("There was an error fetching the Airports", error);
+      console.error("There was an error fetching the airports!", error);
     }
   }, []);
 
@@ -81,11 +80,12 @@ function App() {
     setAirports([...airports, newAirport]);
   };
 
-
   // Aircrafts
   const fetchAircrafts = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/AllAircrafts");
+      const response = await axios.get(
+        "http://localhost:8080/listAllAircrafts"
+      );
       console.log(response.data);
       setAircrafts(response.data);
     } catch (error) {
@@ -99,8 +99,6 @@ function App() {
 
   const addAircraft = (newAircraft) => {
     setAircrafts([...aircrafts, newAircraft]);
-  };
-
   };
 
   return (
@@ -128,23 +126,39 @@ function App() {
         <Route
           path="/CreateNewAirport"
           element={
-            <CreateAirport addAirport={addAirport} fetchAirports={fetchAirports} />
+            <CreateAirport
+              addAirport={addAirport}
+              fetchAirports={fetchAirports}
+            />
           }
         />
         <Route
           path="/AirportsByCityId"
           element={
-            <AirportsByCityId airports={airports} fetchAirports={fetchAirports} />
+            <AirportsByCityId
+              airports={airports}
+              fetchAirports={fetchAirports}
+            />
           }
         />
         <Route path="/Aircraft" element={<AircraftPage />} />
         <Route
           path="/CreateNewAircraft"
-          element={<CreateAircraft addAircraft={addAircraft} fetchAircrafts={fetchAircrafts} />}
+          element={
+            <CreateAircraft
+              addAircraft={addAircraft}
+              fetchAircrafts={fetchAircrafts}
+            />
+          }
         />
         <Route
           path="/listAllAircrafts"
-          element={<AllAircrafts fetchAircrafts={fetchAircrafts} />}
+          element={
+            <AllAircrafts
+              aircrafts={aircrafts}
+              fetchAircrafts={fetchAircrafts}
+            />
+          }
         />
         <Route
           path="/getAircraftById"
@@ -157,11 +171,21 @@ function App() {
         />
         <Route
           path="/ListAllPassengers"
-          element={<AllPassengers passengers={passengers} />}
+          element={
+            <AllPassengers
+              passengers={passengers}
+              loadPassengers={loadPassengers}
+            />
+          }
         />
         <Route
           path="/CreateNewPassenger"
-          element={<CreatePassenger addPassenger={addPassenger} />}
+          element={
+            <CreatePassenger
+              addPassenger={addPassenger}
+              loadPassengers={loadPassengers}
+            />
+          }
         />
       </Routes>
     </div>

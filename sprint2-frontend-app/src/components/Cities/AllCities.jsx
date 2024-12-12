@@ -19,10 +19,18 @@ export default function AllCities({ cities, fetchCities }) {
         {cities.map((city, index) => (
           <li key={index}>
             <h3>{city.cityName}</h3>
-            <p>Country: {city.country}</p>
-            <p>State: {city.state}</p>
-            <p>Weather: {city.weather}</p>
-            <p>Population: {city.population}</p>
+            <p>
+              <strong>Country: </strong> {city.country}
+            </p>
+            <p>
+              <strong>State: </strong> {city.state}
+            </p>
+            <p>
+              <strong>Weather: </strong> {city.weather}
+            </p>
+            <p>
+              <strong>Population: </strong> {city.population}
+            </p>
             <button
               onClick={() => handleDelete(city.cityId)}
               class="deleteButton"

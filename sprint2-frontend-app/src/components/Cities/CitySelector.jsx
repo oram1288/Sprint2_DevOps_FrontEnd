@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const CitySelector = ({ cities }) => {
@@ -17,6 +17,7 @@ const CitySelector = ({ cities }) => {
     <div class="homeBox">
       <h2>Select a City</h2>
       <select
+        className="select-box"
         value={selectedCity ? selectedCity.cityName : ""}
         onChange={handleChange}
       >
@@ -31,11 +32,21 @@ const CitySelector = ({ cities }) => {
       </select>
       {selectedCity && (
         <div>
-          <p>You selected: {selectedCity.cityName}</p>
-          <p>Country: {selectedCity.country}</p>
-          <p>State: {selectedCity.state}</p>
-          <p>Weather: {selectedCity.weather}</p>
-          <p>Population: {selectedCity.population}</p>
+          <p>
+            <strong>You Selected: </strong> {selectedCity.cityName}
+          </p>
+          <p>
+            <strong>Country: </strong> {selectedCity.country}
+          </p>
+          <p>
+            <strong>State: </strong> {selectedCity.state}
+          </p>
+          <p>
+            <strong>Weather: </strong> {selectedCity.weather}
+          </p>
+          <p>
+            <strong>Population: </strong> {selectedCity.population}
+          </p>
         </div>
       )}
 
