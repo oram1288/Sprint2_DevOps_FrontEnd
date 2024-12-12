@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
-import Header from "../Header";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PassengerSelector = ({ passengers }) => {
@@ -21,6 +19,7 @@ const PassengerSelector = ({ passengers }) => {
     <div class="homeBox">
       <h2>Select a Passenger</h2>
       <select
+        className="select-box"
         value={selectedPassenger ? selectedPassenger.passengerName : ""}
         onChange={handleChange}
       >
@@ -35,10 +34,18 @@ const PassengerSelector = ({ passengers }) => {
       </select>
       {selectedPassenger && (
         <div>
-          <p>You selected: {selectedPassenger.passengerName}</p>
-          <p>Address: {selectedPassenger.passengerAddress}</p>
-          <p>Phone: {selectedPassenger.passengerPhone}</p>
-          <p>Email: {selectedPassenger.passengerEmail}</p>
+          <p>
+            <strong>You Selected: </strong> {selectedPassenger.passengerName}
+          </p>
+          <p>
+            <strong>Address: </strong> {selectedPassenger.passengerAddress}
+          </p>
+          <p>
+            <strong>Phone Number: </strong> {selectedPassenger.passengerPhone}
+          </p>
+          <p>
+            <strong>Email: </strong> {selectedPassenger.passengerEmail}
+          </p>
         </div>
       )}
 

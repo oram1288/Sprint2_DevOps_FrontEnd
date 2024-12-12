@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ export default function AllAircrafts({ aircrafts, fetchAircrafts }) {
         `http://localhost:8080/deleteAircraftById/${aircraftId}`
       );
     } catch (error) {
-      console.error("There was an error deleting the airport!", error);
+      console.error("There was an error deleting the aircraft!", error);
     }
     fetchAircrafts();
   };
@@ -18,11 +18,15 @@ export default function AllAircrafts({ aircrafts, fetchAircrafts }) {
     <div className="cityBox">
       <h1>Aircraft List</h1>
       <ul>
-        {aircrafts.map((aircraft) => (
-          <li key={aircraft.aircraftId}>
+        {aircrafts.map((aircraft, index) => (
+          <li key={index}>
             <h3>{aircraft.type}</h3>
-            <p>Airline: {aircraft.airlineName}</p>
-            <p>Seats: {aircraft.numberOfPassengers}</p>
+            <p>
+              <strong>Airline: </strong> {aircraft.airlineName}
+            </p>
+            <p>
+              <strong>Seats: </strong> {aircraft.numberOfPassengers}
+            </p>
             <button
               onClick={() => handleDelete(aircraft.aircraftId)}
               className="deleteButton"
@@ -34,7 +38,7 @@ export default function AllAircrafts({ aircrafts, fetchAircrafts }) {
       </ul>
 
       <br />
-      <Link to={"/Airport"} className="button2">
+      <Link to={"/Aircraft"} className="button2">
         Back
       </Link>
     </div>

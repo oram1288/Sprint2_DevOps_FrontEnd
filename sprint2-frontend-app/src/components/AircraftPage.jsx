@@ -8,18 +8,18 @@ export default function AircraftPage() {
       <nav>
         <ul>
           <li>
+            <Link to="/CreateNewAircraft" class="button">
+              Add a Aircraft
+            </Link>
+          </li>
+          <li>
             <Link to="/listAllAircrafts" class="button">
               All Aircrafts
             </Link>
           </li>
           <li>
             <Link to="/getAircraftById" class="button">
-              Find Aircraft By ID
-            </Link>
-          </li>
-          <li>
-            <Link to="/CreateAirport" class="button">
-              Find Aircraft By ID
+              Find An Aircraft
             </Link>
           </li>
         </ul>

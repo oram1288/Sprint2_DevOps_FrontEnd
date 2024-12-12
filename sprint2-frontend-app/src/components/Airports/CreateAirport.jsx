@@ -3,21 +3,26 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function CreateAirport({ fetchAirport }) {
-  const [cityName, setCityName] = useState("");
-  const [Code, setCode] = useState("");
+export default function CreateAirport({ fetchAirports }) {
+  const [name, setName] = useState("");
+  const [code, setCode] = useState("");
+  const [cityName, setCityName] = useState({ cityName: "" });
+  const [notification, setNotification] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newCity = {
+    const newAirport = {
+      name,
+      code,
       cityName,
-      Code
     };
     try {
-      await axios.post("http://localhost:8080/addNewAirport", newAircraft);
-      setCityName("");
+      await axios.post("http://localhost:8080/addNewAirport", newAirport);
+      setName("");
       setCode("");
+      setCityName({ cityName: "" });
       setNotification("Airport added successfully!");
-      fetchAirport();
+      fetchAirports();
       setTimeout(() => setNotification(""), 3000);
     } catch (error) {
       console.error("There was an error adding the Airport", error);
@@ -40,11 +45,11 @@ export default function CreateAirport({ fetchAirport }) {
       )}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>City Name:</label>
+          <label>Airport Name:</label>
           <input
             type="text"
-            value={cityName}
-            onChange={(e) => setCityName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -52,8 +57,17 @@ export default function CreateAirport({ fetchAirport }) {
           <label>Code:</label>
           <input
             type="text"
-            value={Code}
+            value={code}
             onChange={(e) => setCode(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>City Name:</label>
+          <input
+            type="text"
+            value={cityName.cityName}
+            onChange={(e) => setCityName({ cityName: e.target.value })}
             required
           />
         </div>

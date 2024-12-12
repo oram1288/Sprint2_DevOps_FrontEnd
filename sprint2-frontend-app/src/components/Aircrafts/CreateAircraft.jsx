@@ -4,22 +4,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function CreateAircraft({ fetchAircrafts }) {
-  const [cityName, setCityName] = useState("");
-  const [airlineName, setAirline] = useState("");
+  const [type, setType] = useState("");
+  const [airlineName, setAirlineName] = useState("");
   const [numberOfPassengers, setSeats] = useState("");
-  
+  const [airportId, setAirportId] = useState({ airportId: "" });
+  const [notification, setNotification] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newCity = {
-      cityName,
+    const newAircraft = {
+      type,
       airlineName,
-      numberOfPassengers, 
+      numberOfPassengers,
+      airportId,
     };
     try {
       await axios.post("http://localhost:8080/addNewAircraft", newAircraft);
-      setCityName("");
-      setAirline("");
+      setType("");
+      setAirlineName("");
       setSeats("");
+      setAirportId({ airportId: "" });
       setNotification("Aircraft added successfully!");
       fetchAircrafts();
       setTimeout(() => setNotification(""), 3000);
@@ -44,20 +48,38 @@ export default function CreateAircraft({ fetchAircrafts }) {
       )}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>City Name:</label>
+          <label>Airline Type:</label>
           <input
             type="text"
-            value={cityName}
-            onChange={(e) => setCityName(e.target.value)}
+            value={type}
+            onChange={(e) => setType(e.target.value)}
             required
           />
         </div>
         <div>
-          <label>Seats:</label>
+          <label>Airline Name:</label>
+          <input
+            type="text"
+            value={airlineName}
+            onChange={(e) => setAirlineName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Number of Passengers:</label>
           <input
             type="text"
             value={numberOfPassengers}
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={(e) => setSeats(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Airport ID:</label>
+          <input
+            type="text"
+            value={airportId.airportId}
+            onChange={(e) => setAirportId({ airportId: e.target.value })}
             required
           />
         </div>

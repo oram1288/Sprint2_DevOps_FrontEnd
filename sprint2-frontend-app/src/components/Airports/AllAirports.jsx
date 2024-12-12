@@ -21,8 +21,12 @@ export default function AllAirports({ airports, fetchAirports }) {
         {airports.map((airport, index) => (
           <li key={index}>
             <h3>{airport.name}</h3>
-            <p>Code: {airport.code}</p>
-            <p>City: {airport.cityName.cityName}</p>
+            <p>
+              <strong>Code: </strong> {airport.code}
+            </p>
+            <p>
+              <strong>City Name: </strong> {airport.cityName.cityName}
+            </p>
             <button
               onClick={() => handleDelete(airport.airportId)}
               className="deleteButton"
