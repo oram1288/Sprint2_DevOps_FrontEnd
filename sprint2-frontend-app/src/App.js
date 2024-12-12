@@ -13,12 +13,15 @@ import AirportPage from "./components/AirportPage";
 import AllAirports from "./components/Airports/AllAirports";
 import AircraftPage from "./components/AircraftPage";
 import AllAircrafts from "./components/Aircrafts/AllAircrafts";
-import PassengerSelector from "./components/Passengers/PassengerSelector";
 import PassengerPage from "./components/PassengerPage";
 import AirportsByCityId from "./components/Airports/AirportsByCityId";
 import CreateAirport from "./components/Airports/CreateAirport";
 import CreateAircraft from "./components/Aircrafts/CreateAircraft";
 import AircraftById from "./components/Aircrafts/AircraftById";
+import PassengerSelector from "./components/Passengers/PassengerSelector";
+import AllPassengers from "./components/Passengers/AllPassengers";
+import CreatePassenger from "./components/Passengers/CreatePassenger";
+
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -55,7 +58,7 @@ function App() {
   useEffect(() => {
     loadPassengers().then(() => console.log("Passengers loaded"));
   }, [loadPassengers]);
-  
+
   const addPassenger = (newPassenger) => {
     setPassengers([...passengers, newPassenger]);
 
@@ -98,10 +101,7 @@ function App() {
     setAircrafts([...aircrafts, newAircraft]);
   };
 
-
-
-
-
+  };
 
   return (
     <div>
@@ -155,7 +155,10 @@ function App() {
           path="/PassengerList"
           element={<PassengerSelector passengers={passengers} />}
         />
-        <Route path="/ListAllPassengers" element={<AllPassengers passengers={passengers} />} />
+        <Route
+          path="/ListAllPassengers"
+          element={<AllPassengers passengers={passengers} />}
+        />
         <Route
           path="/CreateNewPassenger"
           element={<CreatePassenger addPassenger={addPassenger} />}
@@ -163,7 +166,6 @@ function App() {
       </Routes>
     </div>
   );
-}
 }
 
 export default App;
