@@ -5,7 +5,7 @@ import axios from "axios";
 export default function AllPassengers({ passengers, loadPassengers }) {
   const handleDelete = async (passengerID) => {
     try {
-      await axios.delete(`http://localhost:8080/deletePassengerByID/${passengerID}`);
+      await axios.delete(`http://localhost:8080/deletePassengerById/${passengerID}`);
     } catch (error) {
       console.error("There was an error deleting the passenger!", error);
     }
