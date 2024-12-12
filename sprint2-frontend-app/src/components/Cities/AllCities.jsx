@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 export default function AllCities({ cities, fetchCities }) {
+  const [notification, setNotification] = useState("");
+
   const handleDelete = async (cityId) => {
     try {
       await axios.delete(`http://localhost:8080/deleteCityById/${cityId}`);
+      setNotification("City deleted successfully!");
+      setTimeout(() => setNotification(""), 3000);
     } catch (error) {
       console.error("There was an error deleting the city!", error);
+      setNotification("Failed to delete city.");
+      setTimeout(() => setNotification(""), 3000);
     }
     fetchCities();
   };
@@ -15,6 +22,15 @@ export default function AllCities({ cities, fetchCities }) {
   return (
     <div class="cityBox">
       <h1>Cities</h1>
+      {notification && (
+        <p
+          style={{
+            color: notification.includes("successfully") ? "green" : "red",
+          }}
+        >
+          {notification}
+        </p>
+      )}
       <ul>
         {cities.map((city, index) => (
           <li key={index}>
