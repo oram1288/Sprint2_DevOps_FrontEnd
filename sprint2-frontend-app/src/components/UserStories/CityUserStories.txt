@@ -1,0 +1,35 @@
+User Story 1:
+As a user, I want to add a new city so that I can keep track of cities I 
+am interested in. By doing so, users can easily add new cities to their 
+list, ensuring they can keep track of all the cities and their information.
+
+Tasks:
+
+    Create a form to add a new city.
+    Send a POST request to the backend to add the city.
+    Display a success or error message.
+
+
+User Story 2:
+As a user, I want to view a list of all cities so that I can see which 
+cities are available. By doing so, users can easily view all available 
+cities, ensuring they have access to the information they need.
+
+Tasks:
+
+    Fetch the list of cities from the backend.
+    Display the list of cities.
+    Ensure the list updates when a new city is added or deleted.
+
+
+User Story 3:
+As a user, I want to delete a city so that I can remove cities I am no 
+longer interested in. By doing so, users can easily remove cities from 
+their list, ensuring their list of cities remains relevant and up to date.
+
+Tasks:
+
+    Add a delete button for each city.
+    Send a DELETE request to the backend to delete the city.
+    Refresh the list of cities after deletion.
+    Display a success or error message.

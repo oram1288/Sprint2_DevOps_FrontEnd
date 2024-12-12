@@ -6,7 +6,7 @@ export default function AllPassengers({ passengers, loadPassengers }) {
   const handleDelete = async (passengerID) => {
     try {
       await axios.delete(
-        `http://localhost:8080/deletePassengerById/${passengerID}`
+        `http://localhost:8080//deletePassengerByID/${passengerID}`
       );
       loadPassengers(); // Refresh the list of passengers
     } catch (error) {
