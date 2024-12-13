@@ -1,0 +1,38 @@
+1."As a user, I want to create a new passenger by filling out a 
+form so that I can add their information to the system."
+
+The user must fill out all fields: name, address, phone, email, and aircraft ID.
+
+On clicking the "Add Passenger" button:
+A valid passenger is sent to the backend via an API call 
+(POST request to /addNewPassenger).
+
+The form fields are cleared.
+A success message (Passenger added successfully!) is displayed.
+
+2. "As a user, I want to view a list of all passengers 
+so that I can see the details of passengers in the system."
+
+Given the user is on the passengers page,
+When the page is loaded,
+Then a request is made to fetch the list of passengers from the server.
+
+Given the passengers have been fetched successfully,
+When the data is returned,
+Then the list of passengers is displayed on the page with their names, addresses, phone numbers, and emails.
+
+Given there are passengers in the system,
+When the data is rendered,
+Then the user can see each passenger’s details (name, address, phone, and email).
+
+3."As a user, I want to be able to delete a passenger
+ from the system so that I can manage the passenger list."
+
+The user should see a list of passengers with a "Delete" button next to each passenger.
+Clicking the "Delete" button will trigger an API call 
+(DELETE request to /deletePassengerById/{passengerID}).
+
+Upon successful deletion:
+The passenger is removed from the displayed list.
+The list is updated to reflect the deletion.
+
