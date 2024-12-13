@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function CreatePassenger() {
+export default function CreatePassenger({ loadPassengers }) {
   const [passengerName, setPassengerName] = useState("");
   const [passengerAddress, setPassengerAddress] = useState("");
   const [passengerEmail, setPassengerEmail] = useState("");
@@ -28,6 +28,7 @@ export default function CreatePassenger() {
       setPassengerEmail("");
       setAircraftId({ aircraftId: "" });
       setNotification("Passenger added successfully!");
+      loadPassengers();
       setTimeout(() => setNotification(""), 3000);
     } catch (error) {
       console.error("There was an error adding the passenger", error);
