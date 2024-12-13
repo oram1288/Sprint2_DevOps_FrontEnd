@@ -1,0 +1,62 @@
+User Story 1: Add a New Airport
+As a user, I want to add a new Airport so that I can track the airports I am interested in.
+By doing so, users can easily add new airports to their list, ensuring they can keep track of all the airports and their details.
+
+Tasks:
+
+-Create a form to add a new airport.
+-Ensure the form collects necessary information such as airport name and location (e.g., city or country).
+-Send a POST request to the backend to add the new airport.
+-Display a success or error message based on the result of the addition.
+-Validate user input to ensure the data is correct before sending the request.
+
+
+User Story 2: View a List of All Airports
+As a user, I want to view a list of all Airports so that I can see which airports are available.
+By doing so, users can easily view all available airports, ensuring they have access to the information they need.
+
+Tasks:
+
+-Fetch the list of airports from the backend using a GET request.
+-Display the list of airports, showing details such as airport name and location.
+-Ensure the list is dynamically updated when a new airport is added or an existing one is deleted.
+
+
+
+User Story 3: Update an Existing Airport
+As a user, I want to update an existing airport so that I can modify the airport details if there are any changes.
+By doing so, users can ensure that the information about the airport remains accurate and up to date.
+
+Tasks:
+
+-Add an edit button for each airport in the list.
+-When the user clicks the edit button, pre-populate the form with the current information of the selected airport.
+-Allow the user to modify the airport details (e.g., name, location).
+-Send a PUT request to the backend to update the airport in the database.
+-Display a success or error message based on the result of the update.
+
+User Story 4: Delete an Airport
+As a user, I want to delete an airport so that I can remove airports I am no longer interested in.
+By doing so, users can manage their list of airports and ensure that only relevant data remains in the system.
+
+Tasks:
+
+-Add a delete button for each airport in the list.
+-Send a DELETE request to the backend to remove the airport from the database.
+-Refresh the list of airports after deletion to reflect the changes.
+-Display a success or error message after the deletion process.
+-Ensure proper confirmation or warning before deleting an airport to prevent accidental deletions.
+
+
+User Story 5: Get Airports by City ID
+As a user, I want to view a list of airports associated with a specific city so that I can see which airports are located in that city.
+By doing so, users can easily view all the airports in a particular city, ensuring they have the relevant information for travel or research.
+
+Tasks:
+
+-Add a search feature where the user can input a city ID or select a city from a list.
+-Send a GET request to the backend using the city ID to fetch all airports associated with that city.
+-Display the list of airports tied to the selected city, including details such as airport name and location.
+-Ensure that the airports list is dynamically updated whenever the city selection changes.
+-Display a message or indicator if no airports are found for the selected city.
+-Handle errors (e.g., if the city ID is invalid or no airports are found) and display an appropriate message to the user.
