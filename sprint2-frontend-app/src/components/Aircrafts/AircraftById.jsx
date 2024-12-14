@@ -10,7 +10,8 @@ const AircraftById = () => {
   const fetchAircraftById = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/getAircraftById/${aircraftId}`
+        // `http://localhost:8080/getAircraftById/${aircraftId}`
+        `http://52.23.157.158:80/getAircraftById/${aircraftId}`
       );
       setAircraft(response.data);
       setErrorMessage("");

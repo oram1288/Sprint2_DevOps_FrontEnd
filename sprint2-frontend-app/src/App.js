@@ -30,7 +30,8 @@ function App() {
   // Cities
   const fetchCities = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/listAllCities");
+      // const response = await axios.get("http://localhost:8080/listAllCities");
+      const response = await axios.get("http://52.23.157.158:80/listAllCities");
       console.log(response.data);
       setCities(response.data);
     } catch (error) {
@@ -48,7 +49,10 @@ function App() {
 
   // Passengers
   const loadPassengers = useCallback(async () => {
-    const response = await axios.get("http://localhost:8080/getAllPassengers");
+    const response = await axios.get(
+      // "http://localhost:8080/getAllPassengers"
+      "http://52.23.157.158:80/getAllPassengers"
+    );
     console.log(response.data);
     setPassengers(response.data);
   }, []);
@@ -64,7 +68,10 @@ function App() {
   // Airports
   const fetchAirports = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/listAllAirports");
+      const response = await axios.get(
+        // "http://localhost:8080/listAllAirports"
+        "http://52.23.157.158:80/listAllAirports"
+      );
       console.log(response.data);
       setAirports(response.data);
     } catch (error) {
@@ -84,7 +91,8 @@ function App() {
   const fetchAircrafts = useCallback(async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/listAllAircrafts"
+        //"http://localhost:8080/listAllAircrafts"
+        "http://52.23.157.158:80/listAllAircrafts"
       );
       console.log(response.data);
       setAircrafts(response.data);

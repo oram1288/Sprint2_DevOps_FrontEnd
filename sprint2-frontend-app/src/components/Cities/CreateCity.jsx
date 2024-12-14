@@ -21,7 +21,8 @@ export default function CreateCity({ fetchCities }) {
       population,
     };
     try {
-      await axios.post("http://localhost:8080/addNewCity", newCity);
+      // await axios.post("http://localhost:8080/addNewCity", newCity);
+      await axios.post("http://52.23.157.158:80/addNewCity", newCity);
       setCityName("");
       setCountry("");
       setState("");

@@ -10,7 +10,8 @@ function AirportsByCityId() {
   const fetchAirportsByCityId = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/getAirportsByCityId/${cityId}`
+        // `http://localhost:8080/getAirportsByCityId/${cityId}`
+        `http://52.23.157.158:80/getAirportsByCityId/${cityId}`
       );
       setAirports(response.data);
       setErrorMessage("");

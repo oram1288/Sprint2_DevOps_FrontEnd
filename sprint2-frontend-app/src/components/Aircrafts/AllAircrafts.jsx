@@ -6,7 +6,8 @@ export default function AllAircrafts({ aircrafts, fetchAircrafts }) {
   const handleDelete = async (aircraftId) => {
     try {
       await axios.delete(
-        `http://localhost:8080/deleteAircraftById/${aircraftId}`
+        // `http://localhost:8080/deleteAircraftById/${aircraftId}`
+        `http://52.23.157.158:80/deleteAircraftById/${aircraftId}`
       );
     } catch (error) {
       console.error("There was an error deleting the aircraft!", error);

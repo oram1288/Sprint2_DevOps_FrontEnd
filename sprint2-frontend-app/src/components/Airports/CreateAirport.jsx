@@ -17,7 +17,8 @@ export default function CreateAirport({ fetchAirports }) {
       cityName,
     };
     try {
-      await axios.post("http://localhost:8080/addNewAirport", newAirport);
+      // await axios.post("http://localhost:8080/addNewAirport", newAirport);
+      await axios.post("http://52.23.157.158:80/addNewAirport", newAirport);
       setName("");
       setCode("");
       setCityName({ cityName: "" });

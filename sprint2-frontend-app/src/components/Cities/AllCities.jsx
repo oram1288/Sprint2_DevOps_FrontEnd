@@ -8,7 +8,8 @@ export default function AllCities({ cities, fetchCities }) {
 
   const handleDelete = async (cityId) => {
     try {
-      await axios.delete(`http://localhost:8080/deleteCityById/${cityId}`);
+      // await axios.delete(`http://localhost:8080/deleteCityById/${cityId}`);
+      await axios.delete(`http://52.23.157.158:80/deleteCityById/${cityId}`);
       setNotification("City deleted successfully!");
       setTimeout(() => setNotification(""), 3000);
     } catch (error) {

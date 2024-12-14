@@ -19,7 +19,8 @@ export default function CreateAircraft({ fetchAircrafts }) {
       airportId,
     };
     try {
-      await axios.post("http://localhost:8080/addNewAircraft", newAircraft);
+      // await axios.post("http://localhost:8080/addNewAircraft", newAircraft);
+      await axios.post("http://52.23.157.158:80/addNewAircraft", newAircraft);
       setType("");
       setAirlineName("");
       setSeats("");
